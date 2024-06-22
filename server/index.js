@@ -15,7 +15,11 @@ const dataRoutes = require("./src/routes/data");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://travel-persona.vercel.app/', // Replace this with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add the HTTP methods you want to allow
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add the headers you want to allow
+}));
 
 // default route
 app.get("/", (req, res) => {
