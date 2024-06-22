@@ -16,11 +16,6 @@ const dataRoutes = require("./src/routes/data");
 const app = express();
 
 app.use(cors());
-const PORT = process.env.PORT || 5000;
-
-app.post("/api/login", (req, res) => {
-  res.json("api/login");
-});
 
 // default route
 app.get("/", (req, res) => {
@@ -39,6 +34,8 @@ app.use("/api", courseRoutes);
 app.use("/api", user_typeRoutes);
 app.use("/api", userRoutes);
 app.use("/api", dataRoutes);
+
+const PORT = process.env.PORT || 5000;
 
 // Start the server
 app.listen(PORT, () => {
