@@ -38,7 +38,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectToDatabase();
 
 // Routes
-app.use("/api/login");
 app.use("/api", courseRoutes);
 app.use("/api", user_typeRoutes);
 app.use("/api", userRoutes);
