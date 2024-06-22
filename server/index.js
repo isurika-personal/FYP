@@ -14,13 +14,13 @@ const dataRoutes = require("./src/routes/data");
 const app = express();
 
 // Allow CORS requests from your frontend URL
-app.use(
-  cors({
-    origin: "https://travel-persona.vercel.app", // Replace this with your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"], // Add the HTTP methods you want to allow
-    allowedHeaders: ["Content-Type", "Authorization"], // Add the headers you want to allow
-  })
-);
+const corsOptions = {
+  origin: "https://travel-persona.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5000;
 
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the student management system");
 });
 
-// Use body-parser middleware
+// Other middleware and route setups
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -37,7 +37,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectToDatabase();
 
 // Routes
-app.use("/api/login");
 app.use("/api", user_typeRoutes);
 app.use("/api", userRoutes);
 app.use("/api", dataRoutes);
