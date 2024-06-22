@@ -7,7 +7,6 @@ const cors = require("cors");
 const connectToDatabase = require("./database");
 
 // Routes
-const courseRoutes = require("./src/routes/course");
 const user_typeRoutes = require("./src/routes/user_type");
 const userRoutes = require("./src/routes/user");
 const dataRoutes = require("./src/routes/data");
@@ -38,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectToDatabase();
 
 // Routes
-app.use("/api", courseRoutes);
+app.use("/api/login");
 app.use("/api", user_typeRoutes);
 app.use("/api", userRoutes);
 app.use("/api", dataRoutes);
