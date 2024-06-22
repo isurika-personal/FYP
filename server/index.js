@@ -14,15 +14,6 @@ const userRoutes = require("./src/routes/user");
 const dataRoutes = require("./src/routes/data");
 
 const app = express();
-
-app.use(
-  cors({
-    origin: "https://travel-persona.vercel.app", // Replace this with your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"], // Add the HTTP methods you want to allow
-    allowedHeaders: ["Content-Type", "Authorization"], // Add the headers you want to allow
-  })
-);
-
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -30,7 +21,7 @@ app.use(cors());
 
 // default route
 app.get("/", (req, res) => {
-  res.send("Welcome to the system");
+  res.send("Welcome to the student management system");
 });
 
 // Use body-parser middleware
