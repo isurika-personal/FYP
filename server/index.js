@@ -1,4 +1,3 @@
-// script to start the server
 require("dotenv").config();
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -16,13 +15,15 @@ const dataRoutes = require("./src/routes/data");
 const app = express();
 
 app.use(cors({
-  origin: 'https://travel-persona.vercel.app', // Replace this with your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add the HTTP methods you want to allow
-  allowedHeaders: ['Content-Type', 'Authorization'], // Add the headers you want to allow
+  origin: 'https://travel-persona.vercel.app', // Ensure this URL is correct
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS method
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add any other headers you need
+  credentials: true // If you need to send cookies or other credentials
 }));
+
 const PORT = process.env.PORT || 5000;
 
-// default route
+// Default route
 app.get("/", (req, res) => {
   res.send("Welcome to the student management system");
 });
