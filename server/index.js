@@ -14,22 +14,13 @@ const userRoutes = require("./src/routes/user");
 const dataRoutes = require("./src/routes/data");
 
 const app = express();
+
+app.use(cors());
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.options("*", cors());
-
-app.use(
-  cors({
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
-
-    credentials: true,
-  })
-);
+app.post("/api/login", (req, res) => {
+  res.json("api/login");
+});
 
 // default route
 app.get("/", (req, res) => {
