@@ -46,7 +46,7 @@ app.use("/api", dataRoutes);
 connectToDatabase();
 
 // Start the HTTPS server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 443;
 https.createServer(httpsOptions, app).listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
