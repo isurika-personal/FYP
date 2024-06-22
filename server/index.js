@@ -17,10 +17,9 @@ const app = express();
 // Allow CORS requests from your frontend URL
 app.use(
   cors({
-    origin: "https://travel-persona.vercel.app", // Update to your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Include OPTIONS method
-    allowedHeaders: ["Content-Type", "Authorization"], // Add any other headers you need
-    credentials: true, // If you need to send cookies or other credentials
+    origin: "https://travel-persona.vercel.app", // Replace this with your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"], // Add the HTTP methods you want to allow
+    allowedHeaders: ["Content-Type", "Authorization"], // Add the headers you want to allow
   })
 );
 
