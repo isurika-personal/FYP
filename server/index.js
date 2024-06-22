@@ -14,8 +14,6 @@ const userRoutes = require("./src/routes/user");
 const dataRoutes = require("./src/routes/data");
 
 const app = express();
-app.use(cors());
-const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
@@ -24,9 +22,11 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'], // Add the headers you want to allow
 }));
 
+const PORT = process.env.PORT || 5000;
+
 // default route
 app.get("/", (req, res) => {
-  res.send("Welcome to the student management system");
+  res.send("Welcome to the customer segmentation model");
 });
 
 // Use body-parser middleware
