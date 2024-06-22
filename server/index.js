@@ -1,10 +1,9 @@
-// script to start the server
 require("dotenv").config();
 const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
 
-// project imports
+// Project imports
 const connectToDatabase = require("./database");
 
 // Routes
@@ -22,27 +21,26 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'], // Add the headers you want to allow
 }));
 
-const PORT = process.env.PORT || 5000;
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// default route
+// Default route
 app.get("/", (req, res) => {
   res.send("Welcome to the customer segmentation model");
 });
-
-// Use body-parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connect to MongoDB
 connectToDatabase();
 
 // Routes
-app.use("/api", courseRoutes);
-app.use("/api", user_typeRoutes);
-app.use("/api", userRoutes);
-app.use("/api", dataRoutes);
+app.use("/api/course", courseRoutes);
+app.use("/api/user_type", user_typeRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/data", dataRoutes);
 
 // Start the server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
