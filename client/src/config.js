@@ -10,7 +10,7 @@ const config = {
   presetColor: 'default',
   themeDirection: 'ltr',
   basename: '/',
-  apiUrl: 'https://travel-persona-api.vercel.app'
+  apiUrl: 'https://travel-persona-api.vercel.app/'
 };
 
 export default config;
