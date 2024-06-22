@@ -14,8 +14,15 @@ const dataRoutes = require("./src/routes/data");
 
 const app = express();
 
-// allow all CORS requests https://travel-persona.vercel.app/ or any other from https://travel-persona.vercel.app/api/*
-app.use(cors());
+// Allow CORS requests from your frontend URL
+app.use(
+  cors({
+    origin: "https://travel-persona.vercel.app", // Update to your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Include OPTIONS method
+    allowedHeaders: ["Content-Type", "Authorization"], // Add any other headers you need
+    credentials: true, // If you need to send cookies or other credentials
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 
